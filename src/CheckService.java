@@ -1,6 +1,6 @@
 public class CheckService {
 
-    private static String validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_";
+    private static final String validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_";
 
     private static boolean checkCharacters(String s) {
         char[] chars = s.toCharArray();
@@ -45,9 +45,6 @@ public class CheckService {
             throw new WrongLoginException("Неправильная длина логина");
         }
 
-
-        // 4. Параметры password и confirmPassword должны быть равны.
-        // Если это требование не соблюдается, то нужно выбросить `WrongPasswordException`.
     }
 
     private static void validatePassword(String password) throws WrongPasswordException {
