@@ -13,11 +13,13 @@ public class CheckService {
         }
         return true;
     }
-    private static void validatePasswords (String password, String confirmPassword) throws WrongPasswordException {
+
+    private static void validatePasswords(String password, String confirmPassword) throws WrongPasswordException {
         if (!password.equals(confirmPassword)) {
             throw new WrongPasswordException("Пароли не совпадают");
         }
     }
+
     public static void check(Authentication authentication) {
         boolean success = true;
         try {
@@ -39,18 +41,20 @@ public class CheckService {
     }
 
     private static void validateLogin(String login) throws WrongLoginException {
-        if (!checkCharacters(login)){
+        if (!checkCharacters(login)) {
             throw new WrongLoginException("Неправильные символы логина");
-        } if (!checkLength(login)) {
+        }
+        if (!checkLength(login)) {
             throw new WrongLoginException("Неправильная длина логина");
         }
 
     }
 
     private static void validatePassword(String password) throws WrongPasswordException {
-        if (!checkCharacters(password)){
+        if (!checkCharacters(password)) {
             throw new WrongPasswordException("Неправильные символы пароля");
-        } if (!checkLength(password)) {
+        }
+        if (!checkLength(password)) {
             throw new WrongPasswordException("Неправильная длина пароля");
         }
     }
